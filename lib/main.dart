@@ -3,7 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vip/helper/app_style.dart';
+import 'package:vip/view/car_list.dart';
 import 'package:vip/view/home_page.dart';
+import 'package:vip/view/intro.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,12 +18,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      getPages: [
+        GetPage(
+          name: '/carList',
+          page: ()=> CarList(),
+          transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 1200), curve: Curves.fastOutSlowIn,
+        ),
+      ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: generateMaterialColor(AppStyle.yellow),
+        primarySwatch: generateMaterialColor(AppStyle.yellow),
         fontFamily: 'Speed'
       ),
-      home: HomePage()
+      home: Intro()
     );
   }
 }
