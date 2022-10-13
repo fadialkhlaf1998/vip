@@ -17,7 +17,13 @@ class Intro extends StatelessWidget {
           height: Get.height,
           color: AppStyle.darkGrey,
           child: Center(
-            child: Lottie.asset(name),
+            child: Hero(
+              tag: 'logo',
+              child: SizedBox(
+                width: Get.width * 0.7,
+                child: Lottie.asset('assets/animation/Vip Logo Animation.json'),
+              ),
+            )
           ),
         ),
       ),

@@ -25,6 +25,11 @@ class MyApp extends StatelessWidget {
           transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 1200), curve: Curves.fastOutSlowIn,
           arguments: ['index']
         ),
+        GetPage(
+            name: '/home',
+            page: ()=> HomePage(),
+            transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 1200), curve: Curves.fastOutSlowIn
+        ),
       ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

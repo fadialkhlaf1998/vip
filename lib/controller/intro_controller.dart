@@ -20,7 +20,9 @@ class IntroController extends GetxController{
       if(value != null){
         await Global.saveCompanyInfo(value.title, value.image, value.password, value.username, value.id.toString());
         categoryList.addAll(value.category);
-        Get.offAll(()=>HomePage());
+        Future.delayed(const Duration(milliseconds: 1000)).then((_){
+          Get.offAllNamed('/home');
+        });
       }else{
         print('error in get data-------');
       }

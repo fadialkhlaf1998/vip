@@ -42,7 +42,10 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 10),
               Column(
                 children: [
-                  Logo(width: Get.width * 0.4, height: Get.width * 0.13, color: AppStyle.yellow),
+                  Hero(
+                    tag: 'logo',
+                      child: Logo(width: Get.width * 0.4, height: Get.width * 0.13, color: AppStyle.yellow),
+                  ),
                   const SizedBox(height: 10),
                   Text(
                     'RENT A CAR',
