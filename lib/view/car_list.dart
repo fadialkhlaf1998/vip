@@ -243,7 +243,6 @@ class _CarListState extends State<CarList> {
         Container(
           width: Get.width * 0.28,
           height: Get.width * 0.28,
-          padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: AppStyle.yellow,
             shape: BoxShape.circle
@@ -260,6 +259,7 @@ class _CarListState extends State<CarList> {
         ),
         Container(
           height: Get.width * 0.25,
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -275,23 +275,40 @@ class _CarListState extends State<CarList> {
                 ),
               ),
                Column(
-                 children: const [
+                 children: [
                    Text(
                      'AED',
                      style: TextStyle(
-                         color: Colors.grey,
+                         color: Colors.white,
                          fontSize: 20,
                          fontFamily: 'Roboto',
-                         fontWeight: FontWeight.bold
+                         fontWeight: FontWeight.bold,
+                       shadows: [
+                         BoxShadow(
+                           color: Colors.black.withOpacity(0.6),
+                           spreadRadius: 5,
+                           blurRadius: 10,
+                           offset: Offset(0, 3), // changes position of shadow
+                         ),
+                       ],
+
                      ),
                    ),
                    Text(
                      'PER DAY',
                      style: TextStyle(
-                         color: Colors.grey,
+                         color: Colors.white,
                          fontSize: 18,
                          fontFamily: 'Roboto',
-                         fontWeight: FontWeight.bold
+                         fontWeight: FontWeight.bold,
+                       shadows: [
+                         BoxShadow(
+                           color: Colors.black.withOpacity(0.6),
+                           spreadRadius: 5,
+                           blurRadius: 10,
+                           offset: Offset(0, 3), // changes position of shadow
+                         ),
+                       ],
                      ),
                    )
                  ],
@@ -306,13 +323,21 @@ class _CarListState extends State<CarList> {
   _oldPrice(String oldPrice){
     return  Row(
       children: [
-        const Text(
+        Text(
           'Before',
           style: TextStyle(
-              color: Colors.grey,
+              color: Colors.white,
               fontSize: 18,
               fontFamily: 'Montserrat',
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
+            shadows: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.6),
+                spreadRadius: 5,
+                blurRadius: 6,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
           ),
         ),
         const SizedBox(width: 5),
@@ -323,12 +348,20 @@ class _CarListState extends State<CarList> {
             children: [
               Text(
                 oldPrice,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Montserrat',
-                  color: Colors.grey,
+                  color: Colors.white,
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic
+                  fontStyle: FontStyle.italic,
+                  shadows: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.6),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
                 ),
               ),
               RotationTransition(
@@ -386,7 +419,7 @@ class _CarListState extends State<CarList> {
           ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 5,bottom: 5),
+          padding: const EdgeInsets.only(top: 5,bottom: 5),
           width: Get.width * 0.17,
           height: 80,
           decoration: BoxDecoration(
