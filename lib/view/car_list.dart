@@ -33,7 +33,7 @@ class _CarListState extends State<CarList> {
     return Scaffold(
       backgroundColor: AppStyle.yellow,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: const Size.fromHeight(0),
         child: AppBar(
           backgroundColor: AppStyle.darkGrey,
           elevation: 0,
@@ -241,16 +241,17 @@ class _CarListState extends State<CarList> {
       alignment: Alignment.center,
       children: [
         Container(
-          width: Get.width * 0.25,
-          height: Get.width * 0.25,
+          width: Get.width * 0.28,
+          height: Get.width * 0.28,
+          padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: AppStyle.yellow,
             shape: BoxShape.circle
           ),
         ),
         Container(
-          width: Get.width * 0.23,
-          height: Get.width * 0.23,
+          width: Get.width * 0.26,
+          height: Get.width * 0.26,
           decoration: BoxDecoration(
               color: Colors.transparent,
               shape: BoxShape.circle,
