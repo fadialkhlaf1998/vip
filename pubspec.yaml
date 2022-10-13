@@ -39,6 +39,7 @@ dependencies:
   scrollable_positioned_list:
   flutter_bounce: ^1.1.0
   lottie: ^1.4.3
+  url_launcher: ^6.1.6
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -70,6 +71,7 @@ flutter:
   assets:
    - assets/icons/
    - assets/animation/
+   - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

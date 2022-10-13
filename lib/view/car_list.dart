@@ -23,7 +23,7 @@ class _CarListState extends State<CarList> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 1500)).then((value){
+    Future.delayed(const Duration(milliseconds: 400)).then((value){
       carListController.moveToCategory(Get.arguments[0]);
     });
   }

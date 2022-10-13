@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:vip/helper/api.dart';
 import 'package:vip/helper/global.dart';
 import 'package:vip/model/all_data.dart';
-import 'package:vip/view/home_page.dart';
 
 class IntroController extends GetxController{
 
