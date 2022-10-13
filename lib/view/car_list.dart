@@ -386,15 +386,14 @@ class _CarListState extends State<CarList> {
           ),
         ),
         Container(
+          padding: EdgeInsets.only(top: 5,bottom: 5),
           width: Get.width * 0.17,
           height: 80,
           decoration: BoxDecoration(
-           color: Colors.white,
+           color: AppStyle.darkGrey,
               borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                  image: NetworkImage(Global.companyImage),
-              )
           ),
+          child: Image.network(Global.companyImage),
         ),
         // CustomColoredContainer(
         //     width: 0.23,
