@@ -5,6 +5,7 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:vip/controller/car_list_controller.dart';
 import 'package:vip/controller/intro_controller.dart';
 import 'package:vip/helper/app_style.dart';
+import 'package:vip/helper/global.dart';
 import 'package:vip/widget/custom_color_container.dart';
 import 'package:vip/widget/logo.dart';
 
@@ -46,14 +47,13 @@ class _CarListState extends State<CarList> {
             children: [
               _header(),
               SizedBox(
-                height: Get.height - (MediaQuery.of(context).padding.bottom + MediaQuery.of(context).padding.top),
+                height: Get.height - (MediaQuery.of(context).padding.bottom + MediaQuery.of(context).padding.top) - 100,
                 child: ScrollablePositionedList.builder(
                   itemScrollController: carListController.itemScrollController,
                     itemCount: introController.categoryList.length,
                     itemBuilder: (BuildContext context, categoryListIndex){
                       return SingleChildScrollView(
                         child: Container(
-                          margin: const EdgeInsets.only(bottom: 90),
                           color: AppStyle.darkGrey,
                           child: ListView.builder(
                             shrinkWrap: true,
@@ -385,37 +385,49 @@ class _CarListState extends State<CarList> {
             ],
           ),
         ),
-        CustomColoredContainer(
-            width: 0.23,
-            height: 50,
-            color: AppStyle.yellow,
-            borderColor: Colors.white,
-            borderWidth: 0,
-            radius: 30,
-            onTap: (){},
-            outBorder: 0,
-            outColor: Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Icon(
-                Icons.whatsapp,
-                color: Colors.green,
-                size: 40,
-              ),
-              SizedBox(width: 6),
-              Text(
-                'book now',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold
-                ),
+        Container(
+          width: Get.width * 0.17,
+          height: 80,
+          decoration: BoxDecoration(
+           color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              image: DecorationImage(
+                  image: NetworkImage(Global.companyImage),
               )
-            ],
           ),
         ),
+        // CustomColoredContainer(
+        //     width: 0.23,
+        //     height: 50,
+        //     color: AppStyle.yellow,
+        //     borderColor: Colors.white,
+        //     borderWidth: 0,
+        //     radius: 30,
+        //     onTap: (){},
+        //     outBorder: 0,
+        //     outColor: Colors.white,
+        //   child:
+        //   // child: Row(
+        //   //   mainAxisAlignment: MainAxisAlignment.center,
+        //   //   crossAxisAlignment: CrossAxisAlignment.center,
+        //   //   children: const [
+        //   //     Icon(
+        //   //       Icons.whatsapp,
+        //   //       color: Colors.green,
+        //   //       size: 40,
+        //   //     ),
+        //   //     SizedBox(width: 6),
+        //   //     Text(
+        //   //       'book now',
+        //   //       style: TextStyle(
+        //   //           fontSize: 18,
+        //   //           color: Colors.black,
+        //   //           fontWeight: FontWeight.bold
+        //   //       ),
+        //   //     )
+        //   //   ],
+        //   // ),
+        // ),
       ],
     );
   }
