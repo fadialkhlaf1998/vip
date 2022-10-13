@@ -53,7 +53,7 @@ class _CarListState extends State<CarList> {
                     itemBuilder: (BuildContext context, categoryListIndex){
                       return SingleChildScrollView(
                         child: Container(
-                          margin: const EdgeInsets.only(bottom: 40),
+                          margin: const EdgeInsets.only(bottom: 90),
                           color: AppStyle.darkGrey,
                           child: ListView.builder(
                             shrinkWrap: true,
