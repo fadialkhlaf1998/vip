@@ -259,7 +259,7 @@ class _CarListState extends State<CarList> {
         ),
         Container(
           height: Get.width * 0.25,
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(vertical: 5),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
