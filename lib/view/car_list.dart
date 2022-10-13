@@ -269,7 +269,7 @@ class _CarListState extends State<CarList> {
                 price,
                 style: const TextStyle(
                   color: Colors.black,
-                  fontSize: 65,
+                  fontSize: 60,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold
                 ),
