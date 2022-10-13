@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
           name: '/carList',
           page: ()=> CarList(),
           transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 1200), curve: Curves.fastOutSlowIn,
+          arguments: ['index']
         ),
       ],
       debugShowCheckedModeBanner: false,

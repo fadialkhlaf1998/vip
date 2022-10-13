@@ -10,10 +10,25 @@ import 'package:vip/helper/app_style.dart';
 import 'package:vip/widget/custom_color_container.dart';
 import 'package:vip/widget/logo.dart';
 
-class CarList extends StatelessWidget {
+class CarList extends StatefulWidget {
 
+
+  @override
+  State<CarList> createState() => _CarListState();
+}
+
+class _CarListState extends State<CarList> {
   IntroController introController = Get.find();
   CarListController carListController = Get.put(CarListController());
+
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 1500)).then((value){
+      carListController.moveToCategory(Get.arguments[0]);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +104,6 @@ class CarList extends StatelessWidget {
       ),
     );
   }
-
 
   _header(){
     return Container(
@@ -325,7 +339,6 @@ class CarList extends StatelessWidget {
     );
   }
 
-
   _bottomBanner(){
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -338,7 +351,9 @@ class CarList extends StatelessWidget {
             borderColor: Colors.white,
             borderWidth: 0,
             radius: 30,
-            onTap: (){},
+            onTap: (){
+              Get.back();
+            },
             outBorder: 0,
             outColor: Colors.white,
           child: Row(
@@ -397,5 +412,4 @@ class CarList extends StatelessWidget {
       ],
     );
   }
-
 }

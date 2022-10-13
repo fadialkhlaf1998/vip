@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:vip/controller/intro_controller.dart';
+import 'package:vip/helper/app_style.dart';
 
 class Intro extends StatelessWidget {
 
@@ -13,7 +15,10 @@ class Intro extends StatelessWidget {
         child: Container(
           width: Get.width,
           height: Get.height,
-          color: Colors.amber,
+          color: AppStyle.darkGrey,
+          child: Center(
+            child: Lottie.asset(name),
+          ),
         ),
       ),
     );

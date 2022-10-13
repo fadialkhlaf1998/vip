@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:vip/controller/car_list_controller.dart';
 import 'package:vip/controller/intro_controller.dart';
 import 'package:vip/helper/app_style.dart';
 import 'package:vip/view/car_list.dart';
@@ -83,7 +84,7 @@ class HomePage extends StatelessWidget {
                     borderWidth: 3,
                     radius: 40,
                     onTap: (){
-                      Get.toNamed('/carList');
+                      Get.toNamed('/carList', arguments: [introController.categoryList.indexOf(e)]);
                     },
                     outBorder: 0,
                     outColor: Colors.white,
@@ -141,7 +142,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 140,
+                height: 270,
                 child: SvgPicture.asset(
                     'assets/icons/DUBAI.svg',
                   fit: BoxFit.cover,
