@@ -1,5 +1,3 @@
-
-import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +32,14 @@ class _CarListState extends State<CarList> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyle.yellow,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(0),
+        child: AppBar(
+          backgroundColor: AppStyle.darkGrey,
+          elevation: 0,
+        ),
+        
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
