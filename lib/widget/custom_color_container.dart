@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:get/get.dart';
 
 class CustomColoredContainer extends StatelessWidget {
@@ -30,16 +31,25 @@ class CustomColoredContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
-      width: Get.width * width,
-      height: height,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radius),
-        color: outColor,
-      ),
-      child: GestureDetector(
-        onTap: onTap,
+    return Bounce(
+      onPressed: onTap,
+      duration: const Duration(milliseconds: 100),
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 20),
+        width: Get.width * width,
+        height: height,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          color: outColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.6),
+              spreadRadius: 2,
+              blurRadius: 6,
+              offset: Offset(-2, 5), // changes position of shadow
+            ),
+          ],
+        ),
         child: Container(
           margin: EdgeInsets.all(outBorder),
           width: Get.width * width,

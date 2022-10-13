@@ -1,4 +1,5 @@
 
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:vip/controller/car_list_controller.dart';
 import 'package:vip/controller/intro_controller.dart';
 import 'package:vip/helper/app_style.dart';
 import 'package:vip/widget/custom_color_container.dart';
+import 'package:vip/widget/logo.dart';
 
 class CarList extends StatelessWidget {
 
@@ -67,11 +69,8 @@ class CarList extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        _topBanner(
-                                            introController.categoryList[categoryListIndex].cars[index].title,
-                                            introController.categoryList[categoryListIndex].cars[index].seets.toString(),
-                                            introController.categoryList[categoryListIndex].cars[index].doors.toString()
-                                        ),
+                                        _topBanner(introController.categoryList[categoryListIndex].cars[index]),
+                                        _bottomBanner()
                                       ],
                                     )
                                   ],
@@ -118,7 +117,7 @@ class CarList extends StatelessWidget {
               borderWidth: 3,
               radius: 40,
               onTap: (){
-                carListController.moveToCategory(2);
+                carListController.moveToCategory(introController.categoryList.indexOf(e));
               },
               outBorder: 0,
               outColor: Colors.white,
@@ -138,16 +137,16 @@ class CarList extends StatelessWidget {
     );
   }
 
-  _topBanner(String carName, String seat, String doors){
+  _topBanner(car){
     return Container(
       margin: const EdgeInsets.only(top: 20),
-      color: Colors.red,
       width: Get.width * 0.9,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _title(carName, seat, doors),
-          _price(),
+          _title(car.title, car.seets.toString(), car.doors.toString()),
+          _price(car.oldPrice.toString(), car.price.toString()),
         ],
       ),
     );
@@ -159,14 +158,22 @@ class CarList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
+
           width: Get.width * 0.6,
-          color: Colors.blue,
           child:   Text(
-            carName + carName + carName + carName ,
+            carName,
             maxLines: 3,
-            style: const TextStyle(
+            style:  TextStyle(
+              shadows: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.6),
+                  spreadRadius: 5,
+                  blurRadius: 10,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
                 color: Colors.white,
-                fontSize: 35
+                fontSize: 35,
             ),
           ),
         ),
@@ -209,7 +216,7 @@ class CarList extends StatelessWidget {
     );
   }
 
-  _price(){
+  _price(String oldPrice, String price){
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -233,21 +240,160 @@ class CarList extends StatelessWidget {
         Container(
           height: Get.width * 0.25,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 1),
-              RichText(
-                text: TextSpan(
-                  style: TextStyle(
-                      color: AppStyle.yellow,
-                      fontSize: 18,
-                      fontFamily: 'Speed'
-                  ),
+              const SizedBox(height: 20),
+              _oldPrice(oldPrice),
+              Text(
+                price,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 60,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.bold
                 ),
               ),
+               Column(
+                 children: const [
+                   Text(
+                     'AED',
+                     style: TextStyle(
+                         color: Colors.grey,
+                         fontSize: 18,
+                         fontFamily: 'Roboto',
+                         fontWeight: FontWeight.bold
+                     ),
+                   ),
+                   Text(
+                     'PER DAY',
+                     style: TextStyle(
+                         color: Colors.grey,
+                         fontSize: 15,
+                         fontFamily: 'Roboto',
+                         fontWeight: FontWeight.bold
+                     ),
+                   )
+                 ],
+               )
             ],
           ),
         )
+      ],
+    );
+  }
+
+  _oldPrice(String oldPrice){
+    return  Row(
+      children: [
+        const Text(
+          'Before',
+          style: TextStyle(
+              color: Colors.grey,
+              fontSize: 18,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.bold
+          ),
+        ),
+        const SizedBox(width: 5),
+        SizedBox(
+          width: 80,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Text(
+                oldPrice,
+                style: const TextStyle(
+                  fontFamily: 'Montserrat',
+                  color: Colors.grey,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic
+                ),
+              ),
+              RotationTransition(
+                  turns: const AlwaysStoppedAnimation(-9 / 360),
+                  child: Container(
+                    height: 3,
+                    // width: 70,
+                    color: Colors.red,
+                  )
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+
+  _bottomBanner(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Logo(width: Get.width * 0.2, height: 100, color: AppStyle.yellow),
+        CustomColoredContainer(
+            width: 0.17,
+            height: 50,
+            color: Colors.red,
+            borderColor: Colors.white,
+            borderWidth: 0,
+            radius: 30,
+            onTap: (){},
+            outBorder: 0,
+            outColor: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Icon(
+                Icons.home,
+                color: Colors.white,
+                size: 40,
+              ),
+              SizedBox(width: 6),
+              Text(
+                'HOME',
+                style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 25,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold
+                ),
+              )
+            ],
+          ),
+        ),
+        CustomColoredContainer(
+            width: 0.23,
+            height: 50,
+            color: AppStyle.yellow,
+            borderColor: Colors.white,
+            borderWidth: 0,
+            radius: 30,
+            onTap: (){},
+            outBorder: 0,
+            outColor: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Icon(
+                Icons.whatsapp,
+                color: Colors.green,
+                size: 40,
+              ),
+              SizedBox(width: 6),
+              Text(
+                'book now',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold
+                ),
+              )
+            ],
+          ),
+        ),
       ],
     );
   }

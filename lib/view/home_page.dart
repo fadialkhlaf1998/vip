@@ -144,7 +144,7 @@ class HomePage extends StatelessWidget {
                 height: 140,
                 child: SvgPicture.asset(
                     'assets/icons/DUBAI.svg',
-                  fit: BoxFit.contain,
+                  fit: BoxFit.cover,
                   color: AppStyle.yellow,
                 ),
               ),

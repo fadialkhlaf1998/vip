@@ -37,6 +37,7 @@ dependencies:
   http: ^0.13.5
   shared_preferences: ^2.0.15
   scrollable_positioned_list:
+  flutter_bounce: ^1.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -83,6 +84,14 @@ flutter:
    - family: Speed
      fonts:
        - asset: fonts/speed-font.ttf
+
+   - family: Montserrat
+     fonts:
+       - asset: fonts/Montserrat.ttf
+
+   - family: Roboto
+     fonts:
+       - asset: fonts/Roboto.ttf
 
 
   # For details regarding fonts from package dependencies,
