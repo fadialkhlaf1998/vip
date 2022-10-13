@@ -269,7 +269,7 @@ class _CarListState extends State<CarList> {
                 price,
                 style: const TextStyle(
                   color: Colors.black,
-                  fontSize: 60,
+                  fontSize: 65,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold
                 ),
@@ -280,7 +280,7 @@ class _CarListState extends State<CarList> {
                      'AED',
                      style: TextStyle(
                          color: Colors.grey,
-                         fontSize: 18,
+                         fontSize: 20,
                          fontFamily: 'Roboto',
                          fontWeight: FontWeight.bold
                      ),
@@ -289,7 +289,7 @@ class _CarListState extends State<CarList> {
                      'PER DAY',
                      style: TextStyle(
                          color: Colors.grey,
-                         fontSize: 15,
+                         fontSize: 18,
                          fontFamily: 'Roboto',
                          fontWeight: FontWeight.bold
                      ),
